@@ -50,7 +50,7 @@ Your Final Output must be strictly valid JSON with these keys:
 
 tools = [clean_text_tool]
 
-# Create an agent graph using the new LangChain agents API
+# create an agent graph using the new LangChain agents API
 agent = create_agent(
     model=llm,
     tools=tools,
@@ -61,7 +61,7 @@ agent = create_agent(
 def run_audit_agent(raw_text: str):
     """Entry point for Streamlit. Runs the audit agent on the given text."""
     try:
-        # The new agent API expects a state dict with a "messages" list
+        # the agent API expects a state dict with a "messages" list
 
         state = agent.invoke({"messages": [("user", raw_text)]})
         messages = state.get("messages", [])
@@ -78,7 +78,7 @@ def run_audit_agent(raw_text: str):
         else:
             final_text = str(raw_content)
 
-        # Clean the Markdown (The "Translation Layer")
+        # clean the markdown (The "translation layer")
         clean_json_str = final_text.replace("```json", "").replace("```", "").strip()
 
 
@@ -87,7 +87,7 @@ def run_audit_agent(raw_text: str):
     
     except json.JSONDecodeError:
 
-        # If the agent messed up the JSON format, return an error dict
+        # if the agent messed up the JSON format, return an error dict
         return {
             "error": "Parsing Error", 
             "explanation": "The Agent failed to return valid JSON.",
