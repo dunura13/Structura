@@ -1,1 +1,11 @@
 .env
+.env.local
+secrets.toml
+venv/
+.venv/
+env/
+__pycache__/
+*.pyc
+.DS_Store
+.vscode/
+.idea/
