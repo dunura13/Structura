@@ -8,7 +8,7 @@ from src.tools import clean_text_tool
 
 load_dotenv()
 
-# Load API key for Gemini (supports either GOOGLE_API_KEY or GEMINI_API_KEY)
+# Load API key
 _api_key = os.getenv("GOOGLE_API_KEY") or os.getenv("GEMINI_API_KEY")
 if not _api_key:
     raise ValueError(
