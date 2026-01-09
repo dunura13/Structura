@@ -86,7 +86,7 @@ def run_audit_agent(raw_text: str):
         return json.loads(clean_json_str)
     
     except json.JSONDecodeError:
-        
+
         # If the agent messed up the JSON format, return an error dict
         return {
             "error": "Parsing Error", 
